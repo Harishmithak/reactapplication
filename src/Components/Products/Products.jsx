@@ -1,13 +1,8 @@
-// import React from "react";
-
-// export const Products = () => {
-//     return(
-//         <p>Products</p>
-//     );
-// }
 
 import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
+import { Link } from "react-router-dom";
+
 export default function Products() {
   const columns = [
     {
@@ -83,6 +78,7 @@ export default function Products() {
   return (
     <React.Fragment>
       <h1>Product List</h1>
+      <Link to='/DataGridDemo'>View DataGridDemo</Link>
       <DataTable
         customStyles={tableHeaderstyle}
         columns={columns}
@@ -93,7 +89,6 @@ export default function Products() {
         selectableRowsHighlight
         highlightOnHover
         subHeader
-        
         subHeaderComponent={
           <input
             type="text"
