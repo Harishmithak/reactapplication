@@ -79,32 +79,31 @@
 //   );
 // }
 
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import AddIcon from "@mui/icons-material/Add";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/DeleteOutlined";
+import SaveIcon from "@mui/icons-material/Save";
+import CancelIcon from "@mui/icons-material/Close";
+import { DataGridPremium } from '@mui/x-data-grid-premium';
 
-
-
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import AddIcon from '@mui/icons-material/Add';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/DeleteOutlined';
-import SaveIcon from '@mui/icons-material/Save';
-import CancelIcon from '@mui/icons-material/Close';
 import {
   GridRowModes,
   DataGrid,
   GridToolbarContainer,
   GridActionsCellItem,
   GridRowEditStopReasons,
-} from '@mui/x-data-grid';
+} from "@mui/x-data-grid";
 import {
   randomCreatedDate,
   randomTraderName,
   randomId,
   randomArrayItem,
-} from '@mui/x-data-grid-generator';
+} from "@mui/x-data-grid-generator";
 
-const roles = ['Market', 'Finance', 'Development'];
+const roles = ["Market", "Finance", "Development"];
 const randomRole = () => {
   return randomArrayItem(roles);
 };
@@ -152,10 +151,10 @@ function EditToolbar(props) {
 
   const handleClick = () => {
     const id = randomId();
-    setRows((oldRows) => [...oldRows, { id, name: '', age: '', isNew: true }]);
+    setRows((oldRows) => [...oldRows, { id, name: "", age: "", isNew: true }]);
     setRowModesModel((oldModel) => ({
       ...oldModel,
-      [id]: { mode: GridRowModes.Edit, fieldToFocus: 'name' },
+      [id]: { mode: GridRowModes.Edit, fieldToFocus: "name" },
     }));
   };
 
@@ -213,37 +212,37 @@ export default function DataGridDemo() {
   };
 
   const columns = [
-    { field: 'name', headerName: 'Name', width: 180, editable: true },
+    { field: "name", headerName: "Name", width: 180, editable: true },
     {
-      field: 'age',
-      headerName: 'Age',
-      type: 'number',
+      field: "age",
+      headerName: "Age",
+      type: "number",
       width: 80,
-      align: 'left',
-      headerAlign: 'left',
+      align: "left",
+      headerAlign: "left",
       editable: true,
     },
     {
-      field: 'joinDate',
-      headerName: 'Join date',
-      type: 'date',
+      field: "joinDate",
+      headerName: "Join date",
+      type: "date",
       width: 180,
       editable: true,
     },
     {
-      field: 'role',
-      headerName: 'Department',
+      field: "role",
+      headerName: "Department",
       width: 220,
       editable: true,
-      type: 'singleSelect',
-      valueOptions: ['Market', 'Finance', 'Development'],
+      type: "singleSelect",
+      valueOptions: ["Market", "Finance", "Development"],
     },
     {
-      field: 'actions',
-      type: 'actions',
-      headerName: 'Actions',
+      field: "actions",
+      type: "actions",
+      headerName: "Actions",
       width: 100,
-      cellClassName: 'actions',
+      cellClassName: "actions",
       getActions: ({ id }) => {
         const isInEditMode = rowModesModel[id]?.mode === GridRowModes.Edit;
 
@@ -253,7 +252,7 @@ export default function DataGridDemo() {
               icon={<SaveIcon />}
               label="Save"
               sx={{
-                color: 'primary.main',
+                color: "primary.main",
               }}
               onClick={handleSaveClick(id)}
             />,
@@ -290,12 +289,12 @@ export default function DataGridDemo() {
     <Box
       sx={{
         height: 500,
-        width: '100%',
-        '& .actions': {
-          color: 'text.secondary',
+        width: "100%",
+        "& .actions": {
+          color: "text.secondary",
         },
-        '& .textPrimary': {
-          color: 'text.primary',
+        "& .textPrimary": {
+          color: "text.primary",
         },
       }}
     >
@@ -314,6 +313,7 @@ export default function DataGridDemo() {
           toolbar: { setRows, setRowModesModel },
         }}
       />
+     
     </Box>
   );
 }

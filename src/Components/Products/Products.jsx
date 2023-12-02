@@ -81,6 +81,7 @@ export default function Products() {
       <Link to='/DataGridDemo'>View DataGridDemo</Link>
       <DataTable
         customStyles={tableHeaderstyle}
+        
         columns={columns}
         data={filter}
         pagination
@@ -103,3 +104,4 @@ export default function Products() {
     </React.Fragment>
   );
 }
+
