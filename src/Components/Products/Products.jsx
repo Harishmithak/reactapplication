@@ -23,7 +23,7 @@ export default function Products() {
     },
     {
       name: "Image",
-      selector: (row) => <img height={70} width={80} src={row.image} />,
+      selector: (row) => <img height={70} width={80} src={row.image} alt="images"/>,
     },
     {
       name: "Action",
@@ -58,7 +58,7 @@ export default function Products() {
       return item.title.toLowerCase().match(search.toLocaleLowerCase());
     });
     setFilter(result);
-  }, [search]);
+  },[search]);
 
   const handleDelete = (val) => {
     const newdata = data.filter((item) => item.id !== val);
